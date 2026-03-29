@@ -22,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (config('app.env') === 'production') {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
+
         try {
             $setting = \Illuminate\Support\Facades\Cache::rememberForever('site_setting', function () {
                 // If it fails initially, it prevents migrations from breaking
