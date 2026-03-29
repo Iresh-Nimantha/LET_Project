@@ -22,7 +22,7 @@
 
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
             <div class="p-8">
-                <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data" x-data="{ isSubmitting: false }" @submit="isSubmitting = true">
                     @csrf
                     @method('PUT')
 
@@ -130,8 +130,9 @@
                     </div>
 
                     <div class="mt-10 pt-6 border-t border-gray-100 flex items-center justify-end">
-                        <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-gray-900 px-8 py-3.5 text-sm font-bold text-white shadow-xl shadow-gray-900/10 hover:-translate-y-0.5 hover:shadow-gray-900/20 hover:bg-gray-800 transition-all duration-300">
-                            <i class="fa-solid fa-cloud-arrow-up mr-2 text-gold"></i> Save Configuration
+                        <button type="submit" :disabled="isSubmitting" class="inline-flex items-center justify-center rounded-xl bg-gray-900 px-8 py-3.5 text-sm font-bold text-white shadow-xl shadow-gray-900/10 hover:-translate-y-0.5 hover:shadow-gray-900/20 hover:bg-gray-800 transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+                            <span x-show="!isSubmitting"><i class="fa-solid fa-cloud-arrow-up mr-2 text-gold"></i> Save Configuration</span>
+                            <span x-show="isSubmitting" x-cloak><i class="fa-solid fa-spinner fa-spin mr-2 text-gold"></i> Saving...</span>
                         </button>
                     </div>
                 </form>

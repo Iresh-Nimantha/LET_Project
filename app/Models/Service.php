@@ -12,6 +12,7 @@ class Service extends Model
         'slug',
         'description',
         'icon_class',
+        'image_path',
     ];
 
     public function getRouteKeyName(): string

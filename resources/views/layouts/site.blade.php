@@ -11,6 +11,13 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|outfit:400,500,600,700,800&display=swap" rel="stylesheet" />
         
+        <!-- Favicon -->
+        @if(isset($setting) && $setting->logo_path)
+            <link rel="icon" href="{{ str_starts_with($setting->logo_path, 'data:image') ? $setting->logo_path : Storage::url($setting->logo_path) }}" />
+        @else
+            <link rel="icon" href="/favicon.ico" />
+        @endif
+
         <!-- FontAwesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 

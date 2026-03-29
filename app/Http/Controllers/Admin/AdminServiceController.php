@@ -26,9 +26,14 @@ class AdminServiceController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'icon_class' => 'nullable|string|max:255',
+            'image' => 'nullable|image|max:5120',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
+
+        if ($request->hasFile('image')) {
+            $validated['image_path'] = $request->file('image')->store('services', 'public');
+        }
 
         Service::create($validated);
 
@@ -46,9 +51,17 @@ class AdminServiceController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'icon_class' => 'nullable|string|max:255',
+            'image' => 'nullable|image|max:5120',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
+
+        if ($request->hasFile('image')) {
+            if ($service->image_path && !str_starts_with($service->image_path, 'data:') && \Illuminate\Support\Facades\Storage::disk('public')->exists($service->image_path)) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($service->image_path);
+            }
+            $validated['image_path'] = $request->file('image')->store('services', 'public');
+        }
 
         $service->update($validated);
 

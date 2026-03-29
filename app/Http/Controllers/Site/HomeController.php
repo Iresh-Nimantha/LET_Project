@@ -13,13 +13,17 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('site.home', [
-            'services' => Service::query()->latest()->take(6)->get(),
-            'projects' => Project::query()->latest()->take(9)->get(),
-            'testimonials' => Testimonial::query()->latest()->take(6)->get(),
-            'blogs' => Blog::query()->latest()->take(3)->get(),
-            'faqs' => Faq::query()->where('is_active', true)->orderBy('sort_order', 'asc')->orderBy('created_at', 'desc')->get(),
-        ]);
+        $data = \Illuminate\Support\Facades\Cache::rememberForever('homepage_data', function () {
+            return [
+                'services' => Service::query()->latest()->take(6)->get(),
+                'projects' => Project::query()->latest()->take(9)->get(),
+                'testimonials' => Testimonial::query()->latest()->take(6)->get(),
+                'blogs' => Blog::query()->latest()->take(3)->get(),
+                'faqs' => Faq::query()->where('is_active', true)->orderBy('sort_order', 'asc')->orderBy('created_at', 'desc')->get(),
+            ];
+        });
+
+        return view('site.home', $data);
     }
 }
 
