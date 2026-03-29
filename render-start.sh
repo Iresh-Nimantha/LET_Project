@@ -9,5 +9,9 @@ sed -i "s/80/${PORT:-80}/g" /etc/apache2/sites-available/000-default.conf /etc/a
 php artisan optimize:clear
 php artisan storage:link
 
+# Fix permissions for runtime generated files (logs, cache, etc)
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
 # Start the Apache server in the foreground
 apache2-foreground
