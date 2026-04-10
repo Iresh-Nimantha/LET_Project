@@ -1,4 +1,4 @@
-﻿@extends('layouts.site')
+@extends('layouts.site')
 
 @section('title', '| Home')
 
@@ -63,9 +63,6 @@
                 <path d="M100 100 V0 C100 55.228 55.228 100 0 100 Z" />
             </svg>
         </div>
-
-        <!-- 🔥 White filler extending the right edge upwards -->
-        <div class="w-[2.5rem] h-[10rem] bg-white"></div>
 
         <!-- Bottom Right Card -->
         <div class="bg-white rounded-tl-[2.5rem] pl-16 pr-12 pt-8 pb-8 flex flex-col items-start relative w-auto">
