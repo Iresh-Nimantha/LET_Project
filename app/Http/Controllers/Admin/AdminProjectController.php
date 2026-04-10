@@ -27,6 +27,8 @@ class AdminProjectController extends Controller
             'description' => 'required|string',
             'category' => 'nullable|string|max:255',
             'url' => 'nullable|url|max:255',
+            'faq_question' => 'nullable|string|max:255',
+            'faq_answer' => 'nullable|string',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
@@ -52,6 +54,8 @@ class AdminProjectController extends Controller
             'description' => 'required|string',
             'category' => 'nullable|string|max:255',
             'url' => 'nullable|url|max:255',
+            'faq_question' => 'nullable|string|max:255',
+            'faq_answer' => 'nullable|string',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);

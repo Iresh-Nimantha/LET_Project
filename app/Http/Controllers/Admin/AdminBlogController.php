@@ -26,6 +26,8 @@ class AdminBlogController extends Controller
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
             'content' => 'required|string',
+            'faq_question' => 'nullable|string|max:255',
+            'faq_answer' => 'nullable|string',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
@@ -50,6 +52,8 @@ class AdminBlogController extends Controller
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string',
             'content' => 'required|string',
+            'faq_question' => 'nullable|string|max:255',
+            'faq_answer' => 'nullable|string',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);

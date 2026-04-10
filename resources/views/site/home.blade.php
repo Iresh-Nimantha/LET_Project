@@ -639,8 +639,8 @@
                             
                             <div class="flex justify-between items-center text-sm lg:text-base">
                                 <span class="pr-6 tracking-wide" :class="{'font-medium': true}">{{ $faq->question }}</span>
-                                <i class="fa-solid fa-angle-down text-sm opacity-80 font-light" style="color: #2B2B2B;" x-show="!open"></i>
-                                <i class="fa-solid fa-angle-up text-sm font-light text-white opacity-90" x-show="open" x-cloak></i>
+                                <i class="fa-solid fa-angle-down text-sm opacity-80" style="color: #2B2B2B; font-weight: 900;" x-show="!open"></i>
+                                <i class="fa-solid fa-angle-up text-sm text-white opacity-90" style="font-weight: 900;" x-show="open" x-cloak></i>
                             </div>
                             
                             <div x-show="open" x-cloak

@@ -27,6 +27,8 @@ class AdminServiceController extends Controller
             'description' => 'required|string',
             'icon_class' => 'nullable|string|max:255',
             'image' => 'nullable|image|max:5120',
+            'faq_question' => 'nullable|string|max:255',
+            'faq_answer' => 'nullable|string',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
@@ -52,6 +54,8 @@ class AdminServiceController extends Controller
             'description' => 'required|string',
             'icon_class' => 'nullable|string|max:255',
             'image' => 'nullable|image|max:5120',
+            'faq_question' => 'nullable|string|max:255',
+            'faq_answer' => 'nullable|string',
         ]);
 
         $validated['slug'] = Str::slug($validated['title']);
