@@ -412,30 +412,39 @@
             <!-- Three image cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 @php
-                    $display_highlights = (isset($vision_highlights) && count($vision_highlights) > 0) ? $vision_highlights->take(3) : collect([
+                    $defaultImages = [
+                        'https://images.squarespace-cdn.com/content/v1/64c7abe374529062ff1e813d/0ee53a2a-000e-45a9-852f-e91fd1c613ae/PortlandRoad14.jpg',
+                        'https://www.londonelitetrades.co.uk/assets/home-page/home-block-5/1762073717-Mask%20Group%2020.webp',
+                        'https://www.londonelitetrades.co.uk/assets/home-page/home-block-5/1762073697-Mask%20Group%2021.webp'
+                    ];
+
+                    $display_highlights = (isset($vision_highlights) && count($vision_highlights) > 0) ? $vision_highlights->take(3)->values() : collect([
                         (object)[
                             'title' => 'Precise Details In<br>Every Room',
-                            'image_path' => 'https://images.squarespace-cdn.com/content/v1/64c7abe374529062ff1e813d/0ee53a2a-000e-45a9-852f-e91fd1c613ae/PortlandRoad14.jpg',
+                            'image_path' => $defaultImages[0],
                         ],
                         (object)[
                             'title' => 'Ultra Modern Design',
-                            'image_path' => 'https://www.londonelitetrades.co.uk/assets/home-page/home-block-5/1762073717-Mask%20Group%2020.webp',
+                            'image_path' => $defaultImages[1],
                         ],
                         (object)[
                             'title' => 'Perfect Exterior Lines',
-                            'image_path' => 'https://www.londonelitetrades.co.uk/assets/home-page/home-block-5/1762073697-Mask%20Group%2021.webp',
+                            'image_path' => $defaultImages[2],
                         ],
                     ]);
                 @endphp
 
-                @foreach($display_highlights as $highlight)
+                @foreach($display_highlights as $index => $highlight)
                     <div class="flex flex-col">
                         <div class="relative h-[380px] lg:h-[420px] rounded-xl overflow-hidden group">
-                            @if(isset($highlight->image_path) && $highlight->image_path)
-                                <img src="{{ !str_starts_with($highlight->image_path, 'http') && !str_starts_with($highlight->image_path, 'data:image') ? Storage::url($highlight->image_path) : $highlight->image_path }}" alt="{!! strip_tags($highlight->title) !!}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                            @else
-                                <img src="https://images.unsplash.com/photo-1541888086925-920a0b63303c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                            @endif
+                            @php
+                                $imgSrc = (isset($highlight->image_path) && $highlight->image_path) ? $highlight->image_path : ($defaultImages[$index % 3] ?? $defaultImages[0]);
+                                if (!str_starts_with($imgSrc, 'http') && !str_starts_with($imgSrc, 'data:image') && !str_starts_with($imgSrc, '/')) {
+                                    $imgSrc = Storage::url($imgSrc);
+                                }
+                            @endphp
+                            <img src="{{ $imgSrc }}" alt="{!! strip_tags($highlight->title) !!}" referrerpolicy="no-referrer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
                             
                             <div class="absolute bottom-6 left-0 right-0 text-center z-10 px-6 font-outfit">
