@@ -13,6 +13,8 @@ class Service extends Model
         'description',
         'icon_class',
         'image_path',
+        'faq_question',
+        'faq_answer',
     ];
 
     public function getRouteKeyName(): string

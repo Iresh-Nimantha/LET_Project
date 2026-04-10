@@ -51,6 +51,7 @@ class AppServiceProvider extends ServiceProvider
             \App\Models\Testimonial::class,
             \App\Models\Blog::class,
             \App\Models\Faq::class,
+            \App\Models\VisionHighlight::class,
         ];
 
         foreach ($models as $model) {

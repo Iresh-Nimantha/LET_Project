@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Testimonial;
 use App\Models\Faq;
+use App\Models\VisionHighlight;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,7 @@ class HomeController extends Controller
                 'testimonials' => Testimonial::query()->latest()->take(6)->get(),
                 'blogs' => Blog::query()->latest()->take(3)->get(),
                 'faqs' => Faq::query()->where('is_active', true)->orderBy('sort_order', 'asc')->orderBy('created_at', 'desc')->get(),
+                'vision_highlights' => VisionHighlight::query()->where('is_active', true)->orderBy('sort_order', 'asc')->get(),
             ];
         });
 

@@ -1,0 +1,17 @@
+commit 1cd1bec2fd6ca713afa3a04f4f72a9b85def58af
+Author: Iresh-Nimantha <ireshnimantha608@gmail.com>
+Date:   Sun Mar 29 14:11:59 2026 +0530
+
+    fix(proxy): trust all proxies for https offloading on render to fix mixed content
+
+commit 338e4d5e9e334fb78cbeffd7b7a571868cff8b56
+Author: Iresh-Nimantha <ireshnimantha608@gmail.com>
+Date:   Sun Mar 29 14:05:40 2026 +0530
+
+    fix(https): force https scheme in production to resolve proxy issues
+
+commit 7b225f827f138b10dd4b410b3871ae2628e6a786
+Author: Iresh-Nimantha <ireshnimantha608@gmail.com>
+Date:   Sun Mar 29 13:58:18 2026 +0530
+
+    chore: final repository updates

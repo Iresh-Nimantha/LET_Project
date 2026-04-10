@@ -1,0 +1,42 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   app/Http/Controllers/Admin/AdminBlogController.php
+	modified:   app/Http/Controllers/Admin/AdminProjectController.php
+	modified:   app/Http/Controllers/Admin/AdminServiceController.php
+	modified:   app/Http/Controllers/Site/HomeController.php
+	modified:   app/Models/Blog.php
+	modified:   app/Models/Project.php
+	modified:   app/Models/Service.php
+	modified:   resources/views/admin/blogs/create.blade.php
+	modified:   resources/views/admin/blogs/edit.blade.php
+	modified:   resources/views/admin/projects/create.blade.php
+	modified:   resources/views/admin/projects/edit.blade.php
+	modified:   resources/views/admin/services/create.blade.php
+	modified:   resources/views/admin/services/edit.blade.php
+	modified:   resources/views/admin/settings.blade.php
+	modified:   resources/views/components/admin-layout.blade.php
+	modified:   resources/views/site/home.blade.php
+	modified:   routes/web.php
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	app/Http/Controllers/Admin/AdminAccreditationController.php
+	app/Http/Controllers/Admin/AdminRegionController.php
+	app/Http/Controllers/Admin/AdminVisionHighlightController.php
+	app/Models/Accreditation.php
+	app/Models/Region.php
+	app/Models/VisionHighlight.php
+	database/migrations/2026_04_08_043534_create_vision_highlights_table.php
+	database/migrations/2026_04_08_043540_create_regions_table.php
+	database/migrations/2026_04_08_043545_create_accreditations_table.php
+	database/migrations/2026_04_08_060614_add_faq_fields_to_entities_tables.php
+	git_log.txt
+	git_status.txt
+	public/temp_page_0.png
+	resources/views/admin/vision_highlights/
+
+no changes added to commit (use "git add" and/or "git commit -a")

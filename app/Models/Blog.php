@@ -13,6 +13,8 @@ class Blog extends Model
         'excerpt',
         'content',
         'cover_image_path',
+        'faq_question',
+        'faq_answer',
     ];
 
     public function getRouteKeyName(): string

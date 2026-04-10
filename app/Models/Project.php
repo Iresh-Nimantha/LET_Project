@@ -14,6 +14,8 @@ class Project extends Model
         'category',
         'image_path',
         'url',
+        'faq_question',
+        'faq_answer',
     ];
 
     public function getRouteKeyName(): string
